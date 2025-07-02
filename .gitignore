@@ -9,6 +9,9 @@ dist/
 build/
 *.css.map
 
+# Compiled CSS (will be generated)
+assets/css/main.css
+
 # Environment variables
 .env
 .env.local

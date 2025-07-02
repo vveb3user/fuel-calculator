@@ -1,0 +1,17 @@
+{
+  "name": "fuel-calculator",
+  "version": "1.0.0",
+  "description": "Fuel calculator with AJAX calculations and email sending",
+  "main": "index.html",
+  "scripts": {
+    "build": "sass assets/css/main.scss:assets/css/main.css --style compressed",
+    "watch": "sass assets/css/main.scss:assets/css/main.css --watch",
+    "dev": "sass assets/css/main.scss:assets/css/main.css --watch --style expanded"
+  },
+  "devDependencies": {
+    "sass": "^1.69.0"
+  },
+  "keywords": ["fuel", "calculator", "php", "ajax"],
+  "author": "vveb3user",
+  "license": "MIT"
+}
