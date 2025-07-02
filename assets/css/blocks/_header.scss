@@ -1,0 +1,47 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.header { 
+    
+  &__container {
+    padding: rem-calc(39) $dynamic-padding-x;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: rem-calc(1) solid $color-border;
+  }
+
+  &__logo img {
+    height: rem-calc(57);
+  }
+
+  &__menu-wrapper {
+    padding: rem-calc(28) $dynamic-padding-x;
+    border-bottom: rem-calc(8) solid $color-primary;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: flex-start;
+    gap: rem-calc(30);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__menu-item a {
+    color: $color-text;
+    text-decoration: none;
+    transition: color 0.2s;
+    
+    &:hover,
+    &:focus {
+      color: $color-primary;
+    }
+  }
+  
+  .button {
+    padding: rem-calc(9) rem-calc(24);
+  }
+}
+

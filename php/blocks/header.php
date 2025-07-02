@@ -1,9 +1,13 @@
 <header class="header">
     <div class="header__container">
         <div class="header__logo">
-            <!-- Логотип -->
             <img src="assets/images/merck-logo.png" alt="MERCK" />
         </div>
+        <div class="header__actions">
+            <button class="button">Заказать карты</button>
+        </div>
+    </div>
+    <div class="header__menu-wrapper">
         <nav class="header__nav">
             <ul class="header__menu">
                 <li class="header__menu-item"><a href="#">Все топливные карты</a></li>
@@ -16,8 +20,5 @@
                 <li class="header__menu-item"><a href="#">АЗС на карте</a></li>
             </ul>
         </nav>
-        <div class="header__actions">
-            <button class="header__button">Заказать карты</button>
-        </div>
     </div>
 </header> 

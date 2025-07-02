@@ -1,0 +1,19 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.button {
+  background: $color-accent;
+  font-weight: 500;
+  font-size: rem-calc(14);
+  border: none;
+  border-radius: rem-calc(5);
+  padding: rem-calc(12) rem-calc(32);
+  box-shadow: 0 rem-calc(4) rem-calc(24) 0 $color-accent-shadow;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  display: inline-block;
+  text-align: center;
+  &:hover {
+    box-shadow: 0 rem-calc(8) rem-calc(32) 0 $color-accent-shadow-hover;
+  }
+} 
