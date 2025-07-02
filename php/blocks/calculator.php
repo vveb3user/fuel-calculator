@@ -117,17 +117,6 @@
             </div>
         </section>
         <!-- Правая часть: карточка, тариф, промо, экономия -->
-        <aside class="calculator__summary">
-            <!-- Тариф -->
-            <div class="calculator__tariff"></div>
-            <!-- Карточка -->
-            <div class="calculator__card"></div>
-            <!-- Промо-акция -->
-            <div class="calculator__promo"></div>
-            <!-- Экономия -->
-            <div class="calculator__savings"></div>
-            <!-- Кнопка заказа -->
-            <div class="calculator__order"></div>
-        </aside>
+        <?php require __DIR__ . '/summary.php'; ?>
     </div>
 </main> 

@@ -14,16 +14,7 @@
         <!-- Основной контейнер калькулятора -->
         <?php require __DIR__ . '/php/blocks/calculator.php'; ?>
         <!-- Модальное окно -->
-        <div class="modal" id="order-modal" style="display:none;">
-            <div class="modal__content">
-                <!-- Форма заказа тарифа -->
-                <form class="modal__form">
-                    <!-- Поля формы -->
-                </form>
-                <!-- Сообщение об успехе/ошибке -->
-                <div class="modal__message"></div>
-            </div>
-        </div>
+        <?php require __DIR__ . '/php/blocks/modal.php'; ?>
     </div>
 </body>
 </html>
