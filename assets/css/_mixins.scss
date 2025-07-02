@@ -1,0 +1,4 @@
+// Функция для перевода px в rem
+@function rem-calc($px, $base: 16) {
+  @return ($px / $base) * 1rem;
+}
