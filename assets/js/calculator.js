@@ -25,13 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function updateSliderTrack(slider) {
+    function updateSliderProgress(slider) {
         const min = parseInt(slider.min) || 0;
         const max = parseInt(slider.max) || 100;
         const val = parseInt(slider.value) || 0;
         const percent = ((val - min) / (max - min)) * 100;
-        const accent = getComputedStyle(document.documentElement).getPropertyValue('--color-accent') || '#ffe03a';
-        slider.style.background = `linear-gradient(to right, ${accent} 0%, ${accent} ${percent}%, transparent ${percent}%, transparent 100%)`;
+        slider.style.setProperty('--progress', percent + '%');
     }
 
     function updateSliderLimits(regionId) {
@@ -44,16 +43,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (maxSpan) maxSpan.textContent = (max === 500 ? '500+ тонн' : max + '+ тонн');
         if (midSpan) midSpan.textContent = mid + ' тонн';
         updateValue();
-        if (slider) updateSliderTrack(slider);
+        if (slider) updateSliderProgress(slider);
     }
 
     if (slider) {
         slider.addEventListener('input', function() {
             updateValue();
-            updateSliderTrack(slider);
+            updateSliderProgress(slider);
         });
         updateValue();
-        updateSliderTrack(slider);
+        updateSliderProgress(slider);
     }
 
     document.querySelectorAll('.select-region').forEach(region => {

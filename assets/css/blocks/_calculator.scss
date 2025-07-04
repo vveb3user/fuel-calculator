@@ -121,7 +121,15 @@
     &__input {
         width: 100%;
         height: rem-calc(24);
-        -webkit-appearance: none;
+        background: transparent;
+        appearance: none;
+        background: linear-gradient(
+            to right,
+            $color-accent 0%,
+            $color-accent var(--progress, 0%),
+            #E0E7E9 var(--progress, 0%),
+            #E0E7E9 100%
+        );
 
         &::-webkit-slider-runnable-track {
             height: rem-calc(4);
