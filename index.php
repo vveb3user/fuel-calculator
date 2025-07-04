@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор тарифов</title>
-    <!-- favicon и meta -->
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
-    <!-- Хэдер -->
-    <?php require __DIR__ . '/php/blocks/header.php'; ?>
-    <!-- Основной контейнер калькулятора -->
-    <?php require __DIR__ . '/php/blocks/calculator.php'; ?>
-    <!-- Модальное окно -->
-    <?php require __DIR__ . '/php/blocks/modal.php'; ?>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Калькулятор тарифов</title>
+        <!-- favicon и meta -->
+        <link rel="stylesheet" href="assets/css/main.css">
+    </head>
+    <body>
+        <!-- Хэдер -->
+        <?php require __DIR__ . '/php/blocks/header.php'; ?>
+        <!-- Калькулятор и карточка -->
+        <div class="calculator-summary-container">
+            <!-- Калькулятор -->
+            <?php require __DIR__ . '/php/blocks/calculator.php'; ?>
+            <!-- Тариф, промо, экономия -->
+            <?php require __DIR__ . '/php/blocks/summary.php'; ?>
+        </div>
+        <!-- Модальное окно -->
+        <?php require __DIR__ . '/php/blocks/modal.php'; ?>
+    </body>
 </html>

@@ -1,4 +1,4 @@
-<aside class="calculator__summary summary">
+<div class="summary">
     <!-- Блок подходящего тарифа -->
     <div class="summary__tariff-block">
         <span class="summary__tariff-label">Подходящий тариф</span>
@@ -60,4 +60,4 @@
             <span class="summary__order-arrow">→</span>
         </button>
     </div>
-</aside> 
+</div> 

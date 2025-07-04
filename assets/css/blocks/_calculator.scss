@@ -1,1 +1,18 @@
+@use '../variables' as *;
+@use '../mixins' as *;
 
+.calculator-summary-container {
+    padding: rem-calc(128) $dynamic-padding-x;
+    display: flex;
+    gap: rem-calc(40);
+    align-items: flex-start;
+}
+
+.calculator {
+    flex: 1;
+
+    &__title {
+        font-size: rem-calc(50);
+        font-weight: 500;
+    }
+}

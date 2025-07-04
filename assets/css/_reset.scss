@@ -10,11 +10,60 @@ html {
 }
 
 body {
-  font-family: 'Proxima Nova', Inter, Arial, Helvetica, sans-serif;
+  font-family: $font-family-primary, Inter, Arial, Helvetica, sans-serif;
   font-size: rem-calc(14);
   line-height: rem-calc(22);
+  letter-spacing: rem-calc(1);
   color: $color-text;
   background: $color-bg;
   margin: 0;
   padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+  
+  &:is(h1, h2, h3, h4, h5, h6) {
+    font-weight: inherit;
+    font-size: inherit;
+  }
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input, textarea, select {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  
+  &:is(button) {
+    cursor: pointer;
+  }
+  
+  &:is(input, textarea, select) {
+    outline: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
