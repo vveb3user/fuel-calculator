@@ -20,5 +20,7 @@
         </div>
         <!-- Модальное окно -->
         <?php require __DIR__ . '/php/blocks/modal.php'; ?>
+        <script src="assets/js/regions.js"></script>
+        <script src="assets/js/calculator.js"></script>
     </body>
 </html>

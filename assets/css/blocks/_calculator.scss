@@ -14,5 +14,193 @@
     &__title {
         font-size: rem-calc(50);
         font-weight: 500;
+        line-height: 1.1;
+        margin-bottom: rem-calc(70);
+    }
+
+    &__region-select {
+        position: relative;
+        background: $color-bg-secondary;
+        border: 1px solid $color-border-secondary;
+        border-radius: rem-calc(4);
+        padding: rem-calc(21) rem-calc(40) rem-calc(21) rem-calc(25);
+        margin-bottom: rem-calc(60);
+        height: rem-calc(100);
+
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__volume-slider {
+        position: relative;
+        background: $color-bg-secondary;
+        border: 1px solid $color-border-secondary;
+        border-radius: rem-calc(4);
+        padding: rem-calc(21) rem-calc(40) rem-calc(21) rem-calc(25);
+        max-height: rem-calc(100);
+
+        display: flex;       
+        flex-direction: column
+    }
+
+    &__fuel-type {
+        margin-bottom: rem-calc(80);
+    }
+}
+
+.select-region {
+    &__label {
+        color: rgba($color-text, 0.3);
+        margin-bottom: rem-calc(8);
+    }   
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__select {
+        color: $color-grey-dark;
+        font-size: rem-calc(20);
+        border: none;
+        width: 100%;
+    }
+
+    &__arrow {
+        color: $color-grey-dark;
+    }
+
+    &__dropdown {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        background: $color-bg-secondary;
+        border: 1px solid $color-border-secondary;
+        border-radius: rem-calc(4);
+        z-index: 10;
+        margin-top: rem-calc(4);
+        max-height: rem-calc(200);
+        overflow-y: auto;
+    }
+    &.open &__dropdown {
+        display: block;
+    }
+    &__option {
+        padding: rem-calc(12) rem-calc(25);
+        cursor: pointer;
+        font-size: rem-calc(20);
+        color: $color-grey-dark;
+        transition: background 0.15s;
+        &:hover {
+            background: $color-bg-tertiary;
+        }
+    }
+}
+
+.volume-slider {  
+    &__label {
+        color: rgba($color-text, 0.3);
+        margin-bottom: rem-calc(8);
+        }
+
+    &__input-wrapper {
+        margin-top: -#{rem-calc(12)};
+        margin-bottom: rem-calc(70);
+        position: relative;
+    }
+
+    &__value {
+        font-size: rem-calc(20);
+        color: $color-grey-dark;
+    }
+
+    &__input {
+        width: 100%;
+        height: rem-calc(24);
+        -webkit-appearance: none;
+
+        &::-webkit-slider-runnable-track {
+            height: rem-calc(4);
+            background: transparent;
+        }
+        &::-moz-range-track {
+            height: rem-calc(4);
+            background: transparent;
+        }
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: rem-calc(24);
+            height: rem-calc(24);
+            border-radius: 50%;
+            background: $color-accent;
+            border: rem-calc(6) solid $color-bg;
+            box-shadow: 0 0 0 rem-calc(2) rgba($color-grey-light, 0.1);
+            cursor: pointer;
+            margin-top: rem-calc(-10);
+        }
+        &::-moz-range-thumb {
+            width: rem-calc(24);
+            height: rem-calc(24);
+            border-radius: 50%;
+            background: $color-accent;
+            border: rem-calc(6) solid $color-accent;
+            box-shadow: 0 0 0 rem-calc(2) rgba($color-grey-light, 0.1);
+            cursor: pointer;
+        }
+
+        &::-moz-focus-outer {
+            border: 0;
+        }
+    }
+
+    &__scale {
+        display: flex;
+        justify-content: space-between;
+        color: rgba($color-text, 0.3);
+    }
+}
+
+.fuel-type {
+    &__switcher {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        border-bottom: 4px solid #E0E7E9;
+        position: relative;
+        padding-bottom: rem-calc(24);        
+    }
+
+    &__slider {
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 33.3333%;
+        height: 4px;
+        background: #00CFCC;
+        border-radius: 2px;
+        transition: left 0.3s;
+    }
+
+    &__input {
+        display: none;
+    }
+
+    &__label {
+        font-size: rem-calc(25);
+        color: #6F6F6F;
+        padding-bottom: rem-calc(24);
+        cursor: pointer;
+        position: relative;
+        transition: color 0.2s;
+        text-align: center;
+        width: 100%;
+    }
+
+    &__input:checked + &__label {
+        color: $color-text;
     }
 }

@@ -3,26 +3,35 @@
     <h1 class="calculator__title">Калькулятор тарифов</h1>
     <!-- Селект региона -->
     <div class="calculator__region-select select-region">
-        <label class="select-region__label" for="region">Укажите регион проживания</label>
         <div class="select-region__wrapper">
-            <select class="select-region__select" id="region" name="region">
-                <option value="" disabled selected>Выберите регион</option>
+            <label class="select-region__label" for="region">Укажите регион передвижения</label>
+            <div class="select-region__select" id="region" name="region">
+                <span class="select-region__value">Выберите регион</span>
+            </div>
+            <div class="select-region__dropdown">
                 <?php
                 $regions = require __DIR__ . '/../regions.php';
+                $regionLimits = [];
+                foreach ($regions as $region) {
+                    $regionLimits[$region['id']] = $region['limit'];
+                }
                 ?>
                 <?php foreach ($regions as $region): ?>
-                    <option value="<?= htmlspecialchars($region['id']) ?>"><?= htmlspecialchars($region['name']) ?></option>
+                    <div class="select-region__option" data-value="<?= htmlspecialchars($region['id']) ?>">
+                        <?= htmlspecialchars($region['name']) ?>
+                    </div>
                 <?php endforeach; ?>
-            </select>
+            </div>
         </div>
+        <img class="select-region__arrow" src="assets/images/svg/arrow-down.svg" alt=""/>
     </div>
     <!-- Слайдер прокачки -->
     <div class="calculator__volume-slider volume-slider">
         <label class="volume-slider__label" for="volume">Прокачка</label>
-        <div class="volume-slider__input-wrapper">
-            <input type="range" class="volume-slider__input" id="volume" name="volume" min="0" max="1200" value="200">
-            <span class="volume-slider__value">200 тонн</span>
-        </div>
+        <span class="volume-slider__value">200 тонн</span>
+    </div>
+    <div class="volume-slider__input-wrapper">
+        <input type="range" class="volume-slider__input" id="volume" name="volume" min="0" max="1200" value="200">
         <div class="volume-slider__scale">
             <span class="volume-slider__min">0 тонн</span>
             <span class="volume-slider__mid">250 тонн</span>
@@ -38,6 +47,7 @@
             <label for="fuel-gas" class="fuel-type__label">Газ</label>
             <input type="radio" id="fuel-dt" name="fuel-type" value="dt" class="fuel-type__input">
             <label for="fuel-dt" class="fuel-type__label">ДТ</label>
+            <div class="fuel-type__slider"></div>
         </div>
     </div>
     <!-- Выбор бренда -->
@@ -112,4 +122,7 @@
             </button>
         </div>
     </div>
-</div> 
+</div>
+<script>
+window.regionLimits = <?php echo json_encode($regionLimits, JSON_UNESCAPED_UNICODE); ?>;
+</script> 
