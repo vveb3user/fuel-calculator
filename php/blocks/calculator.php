@@ -53,84 +53,102 @@
     <!-- Выбор бренда -->
     <div class="calculator__brands brands">
         <div class="brands__title">Укажите любимый бренд</div>
-        <div class="brands__list">
-            <button class="brands__button brands__button--active">
-                <span class="brands__icon">
+        <div class="circle-list brands__list">
+            <button class="circle-list__item brands__button brands__button--active">
+                <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/shell-logo.svg" alt="Shell" />
                 </span>
-                <span class="brands__name">Shell</span>
+                <span class="circle-list__name brands__name">Shell</span>
             </button>
-            <button class="brands__button">
-                <span class="brands__icon">
+            <button class="circle-list__item brands__button">
+                <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/gazprom-logo.svg" alt="Газпром" />
                 </span>
-                <span class="brands__name">Газпром</span>
+                <span class="circle-list__name brands__name">Газпром</span>
             </button>
-            <button class="brands__button">
-                <span class="brands__icon">
+            <button class="circle-list__item brands__button">
+                <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/rosneft-logo.svg" alt="Роснефть" />
                 </span>
-                <span class="brands__name">Роснефть</span>
+                <span class="circle-list__name brands__name">Роснефть</span>
             </button>
-            <button class="brands__button">
-                <span class="brands__icon">
+            <button class="circle-list__item brands__button">
+                <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/tatneft-logo.svg" alt="Татнефть" />
                 </span>
-                <span class="brands__name">Татнефть</span>
+                <span class="circle-list__name brands__name">Татнефть</span>
             </button>
-            <button class="brands__button">
-                <span class="brands__icon">
+            <button class="circle-list__item brands__button">
+                <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/lukoil-logo.svg" alt="Лукойл" />
                 </span>
-                <span class="brands__name">Лукойл</span>
+                <span class="circle-list__name brands__name">Лукойл</span>
             </button>
-            <button class="brands__button">
-                <span class="brands__icon">
+            <button class="circle-list__item brands__button">
+                <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/bashneft-logo.svg" alt="Башнефть" />
                 </span>
-                <span class="brands__name">Башнефть</span>
+                <span class="circle-list__name brands__name">Башнефть</span>
             </button>
         </div>
     </div>
-    <!-- Дополнительные услуги -->
+    <!-- Блок дополнительных услуг -->
     <div class="calculator__services services">
         <div class="services__title">Дополнительные услуги</div>
-        <div class="services__list">
-            <button type="button" class="services__button" title="Штрафы">
-                <!-- [svg] -->
-                <span class="services__name">Штрафы</span>
+        <div class="circle-list services__list">
+            <button type="button" class="circle-list__item services__button" title="Штрафы">
+                <span class="circle-list__icon services__icon">
+                    <img src="assets/images/svg/fines.svg" alt="Штрафы" />
+                </span>
+                <span class="circle-list__name services__name">Штрафы</span>
             </button>
-            <button type="button" class="services__button" title="Парковки">
-                <!-- [svg] -->
-                <span class="services__name">Парковки</span>
+            <button type="button" class="circle-list__item services__button" title="Парковки">
+                <span class="circle-list__icon services__icon">
+                    <img src="assets/images/svg/parking.svg" alt="Парковки" />
+                </span>
+                <span class="circle-list__name services__name">Парковки</span>
             </button>
-            <button type="button" class="services__button" title="ЭДО">
-                <!-- [svg] -->
-                <span class="services__name">ЭДО</span>
+            <button type="button" class="circle-list__item services__button" title="ЭДО">
+                <span class="circle-list__icon services__icon">
+                    <img src="assets/images/svg/edo.svg" alt="ЭДО" />
+                </span>
+                <span class="circle-list__name services__name">ЭДО</span>
             </button>
-            <button type="button" class="services__button" title="Мойки">
-                <!-- [svg] -->
-                <span class="services__name">Мойки</span>
+            <button type="button" class="circle-list__item services__button" title="Мойки">
+                <span class="circle-list__icon services__icon">
+                    <img src="assets/images/svg/drop.svg" alt="Мойки" />
+                </span>
+                <span class="circle-list__name services__name">Мойки</span>
             </button>
-            <button type="button" class="services__button" title="Отчёты">
-                <!-- [svg] -->
-                <span class="services__name">Отчёты</span>
+            <button type="button" class="circle-list__item services__button" title="Отчёты">
+                <span class="circle-list__icon services__icon">
+                    <img src="assets/images/svg/clock.svg" alt="Отчёты" />
+                </span>
+                <span class="circle-list__name services__name">Отчёты</span>
             </button>
-            <button type="button" class="services__button" title="Телематика">
-                <!-- [svg] -->
-                <span class="services__name">Телематика</span>
+            <button type="button" class="circle-list__item services__button" title="Телематика">
+                <span class="circle-list__icon services__icon">
+                    <img src="assets/images/svg/telemat.svg" alt="Телематика" />
+                </span>
+                <span class="circle-list__name services__name">Телематика</span>
             </button>
-            <button type="button" class="services__button" title="PPRPAY">
-                <!-- [svg] -->
-                <span class="services__name">PPRPAY</span>
+            <button type="button" class="circle-list__item services__button" title="PPRPAY">
+                <span class="circle-list__icon services__icon">
+                    <img src="assets/images/svg/pprpay.svg" alt="PPRPAY" />
+                </span>
+                <span class="circle-list__name services__name">PPRPAY</span>
             </button>
-            <button type="button" class="services__button" title="СМС">
-                <!-- [svg] -->
-                <span class="services__name">СМС</span>
+            <button type="button" class="circle-list__item services__button" title="СМС">
+                <span class="circle-list__icon services__icon">
+                    <img src="assets/images/svg/message.svg" alt="СМС" />
+                </span>
+                <span class="circle-list__name services__name">СМС</span>
             </button>
-            <button type="button" class="services__button" title="Страхование">
-                <!-- [svg] -->
-                <span class="services__name">Страхование</span>
+            <button type="button" class="circle-list__item services__button" title="Страхование">
+                <span class="circle-list__icon services__icon">
+                    <img src="assets/images/svg/insuarence.svg" alt="Страхование" />
+                </span>
+                <span class="circle-list__name services__name">Страхование</span>
             </button>
         </div>
     </div>

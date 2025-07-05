@@ -235,11 +235,39 @@
         color: $color-grey-dark;
     }
 
-    &__list {
+    &__button {
         display: flex;
-        flex-wrap: wrap;
-        gap: rem-calc(16);
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        &--active {
+            .brands__icon {
+                background: $color-accent;
+                img, svg {
+                    fill: $color-bg;
+                    opacity: 1;
+                }
+            }
+            .brands__name {
+                color: $color-text;
+            }
+        }
+    }
+
+    &__icon {
+        img, svg {
+           
+            opacity: 0.5;
+            transition: fill 0.2s, opacity 0.2s;
+        }
+    }
+}
+
+.services {
+    &__title {
+        font-size: rem-calc(25);
+        margin-bottom: rem-calc(23);
+        color: $color-grey-dark;
     }
 
     &__button {
@@ -262,21 +290,12 @@
     }
 
     &__icon {
-        width: $brand-circle-size;
-        height: $brand-circle-size;
-        border-radius: 50%;
-        background: $color-bg-tertiary;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: rem-calc(8);
         img, svg {
             width: $brand-icon-size;
             height: $brand-icon-size;
+            filter: brightness(0) invert(1);
+            opacity: 0.7;
+            transition: filter 0.2s, opacity 0.2s;
         }
-    }
-
-    &__name {
-        color: rgba($color-text, 0.3);
     }
 }
