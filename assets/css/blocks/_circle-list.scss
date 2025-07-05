@@ -22,18 +22,6 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-        &--active {
-            .brands__icon {
-                background: $color-accent;
-                img, svg {
-                    fill: $color-bg;
-                    opacity: 1;
-                }
-            }
-            .brands__name {
-                color: $color-text;
-            }
-        }
     }
 
   &__icon {

@@ -54,37 +54,37 @@
     <div class="calculator__brands brands">
         <div class="brands__title">Укажите любимый бренд</div>
         <div class="circle-list brands__list">
-            <button class="circle-list__item brands__button brands__button--active">
+            <button class="circle-list__item brands__button brands__button--active" data-brand="shell">
                 <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/shell-logo.svg" alt="Shell" />
                 </span>
                 <span class="circle-list__name brands__name">Shell</span>
             </button>
-            <button class="circle-list__item brands__button">
+            <button class="circle-list__item brands__button" data-brand="gazprom">
                 <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/gazprom-logo.svg" alt="Газпром" />
                 </span>
                 <span class="circle-list__name brands__name">Газпром</span>
             </button>
-            <button class="circle-list__item brands__button">
+            <button class="circle-list__item brands__button" data-brand="rosneft">
                 <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/rosneft-logo.svg" alt="Роснефть" />
                 </span>
                 <span class="circle-list__name brands__name">Роснефть</span>
             </button>
-            <button class="circle-list__item brands__button">
+            <button class="circle-list__item brands__button" data-brand="tatneft">
                 <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/tatneft-logo.svg" alt="Татнефть" />
                 </span>
                 <span class="circle-list__name brands__name">Татнефть</span>
             </button>
-            <button class="circle-list__item brands__button">
+            <button class="circle-list__item brands__button" data-brand="lukoil">
                 <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/lukoil-logo.svg" alt="Лукойл" />
                 </span>
                 <span class="circle-list__name brands__name">Лукойл</span>
             </button>
-            <button class="circle-list__item brands__button">
+            <button class="circle-list__item brands__button" data-brand="bashneft">
                 <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/bashneft-logo.svg" alt="Башнефть" />
                 </span>

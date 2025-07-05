@@ -192,7 +192,7 @@
     &__switcher {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        border-bottom: 4px solid #E0E7E9;
+        border-bottom: rem-calc(4) solid $color-border-secondary;
         position: relative;
         padding-bottom: rem-calc(24);        
     }
@@ -200,11 +200,11 @@
     &__slider {
         position: absolute;
         left: 0;
-        bottom: -4px;
+        bottom: rem-calc(-4);
         width: 33.3333%;
-        height: 4px;
-        background: #00CFCC;
-        border-radius: 2px;
+        height: rem-calc(4);
+        background: $color-primary;
+        border-radius: rem-calc(2);
         transition: left 0.3s;
     }
 
@@ -214,7 +214,7 @@
 
     &__label {
         font-size: rem-calc(25);
-        color: #6F6F6F;
+        color: $color-grey-dark;
         padding-bottom: rem-calc(24);
         cursor: pointer;
         position: relative;
@@ -236,15 +236,16 @@
     }
 
     &__button {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
+        &.is-disabled {
+            .circle-list__icon {
+                border: none;
+                box-shadow: 0 0 rem-calc(8) rem-calc(2) rgba($color-error, 0.5);
+            }
+        }
         &--active {
             .brands__icon {
                 background: $color-accent;
                 img, svg {
-                    fill: $color-bg;
                     opacity: 1;
                 }
             }
@@ -256,7 +257,6 @@
 
     &__icon {
         img, svg {
-           
             opacity: 0.5;
             transition: fill 0.2s, opacity 0.2s;
         }
@@ -271,28 +271,74 @@
     }
 
     &__button {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
         &--active {
-            .brands__icon {
-                background: $color-accent;
+            .services__icon {
                 img, svg {
-                    fill: $color-bg;
                     opacity: 1;
                 }
             }
-            .brands__name {
+            .services__name {
                 color: $color-text;
+            }
+        }
+
+        &[title="Штрафы"] {
+            &.services__button--active .services__icon {
+                background: #FF6B6B;
+            }
+        }
+
+        &[title="Парковки"] {
+            &.services__button--active .services__icon {
+                background: #0079C2;
+            }
+        }
+
+        &[title="ЭДО"] {
+            &.services__button--active .services__icon {
+                background: #4ECDC4;
+            }
+        }
+
+        &[title="Мойки"] {
+            &.services__button--active .services__icon {
+                background: #5FADE0;
+            }
+        }
+
+        &[title="Отчёты"] {
+            &.services__button--active .services__icon {
+                background: #FFA726;
+            }
+        }
+
+        &[title="Телематика"] {
+            &.services__button--active .services__icon {
+                background: #9C27B0;
+            }
+        }
+
+        &[title="PPRPAY"] {
+            &.services__button--active .services__icon {
+                background: #FF5722;
+            }
+        }
+
+        &[title="СМС"] {
+            &.services__button--active .services__icon {
+                background: #07DE44;
+            }
+        }
+
+        &[title="Страхование"] {
+            &.services__button--active .services__icon {
+                background: #4CAF50;
             }
         }
     }
 
     &__icon {
         img, svg {
-            width: $brand-icon-size;
-            height: $brand-icon-size;
             filter: brightness(0) invert(1);
             opacity: 0.7;
             transition: filter 0.2s, opacity 0.2s;
