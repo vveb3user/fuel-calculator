@@ -8,11 +8,11 @@
   border: none;
   border-radius: rem-calc(5);
   padding: rem-calc(12) rem-calc(32);
-  box-shadow: 0 rem-calc(4) rem-calc(24) 0 $color-accent-shadow;
+  box-shadow: 0 rem-calc(4) rem-calc(24) 0 rgba($color-accent, 0.25);
   transition: box-shadow 0.2s;
   display: inline-block;
   text-align: center;
   &:hover {
-    box-shadow: 0 rem-calc(8) rem-calc(32) 0 $color-accent-shadow-hover;
+    box-shadow: 0 rem-calc(8) rem-calc(32) 0 rgba($color-accent, 0.35);
   }
 } 

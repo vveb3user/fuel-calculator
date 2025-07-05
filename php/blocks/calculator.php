@@ -54,28 +54,40 @@
     <div class="calculator__brands brands">
         <div class="brands__title">Укажите любимый бренд</div>
         <div class="brands__list">
-            <button type="button" class="brands__button" title="Shell">
-                <!-- [svg] -->
+            <button class="brands__button brands__button--active">
+                <span class="brands__icon">
+                    <img src="assets/images/svg/shell-logo.svg" alt="Shell" />
+                </span>
                 <span class="brands__name">Shell</span>
             </button>
-            <button type="button" class="brands__button" title="Газпром">
-                <!-- [svg] -->
+            <button class="brands__button">
+                <span class="brands__icon">
+                    <img src="assets/images/svg/gazprom-logo.svg" alt="Газпром" />
+                </span>
                 <span class="brands__name">Газпром</span>
             </button>
-            <button type="button" class="brands__button" title="Роснефть">
-                <!-- [svg] -->
+            <button class="brands__button">
+                <span class="brands__icon">
+                    <img src="assets/images/svg/rosneft-logo.svg" alt="Роснефть" />
+                </span>
                 <span class="brands__name">Роснефть</span>
             </button>
-            <button type="button" class="brands__button" title="Татнефть">
-                <!-- [svg] -->
+            <button class="brands__button">
+                <span class="brands__icon">
+                    <img src="assets/images/svg/tatneft-logo.svg" alt="Татнефть" />
+                </span>
                 <span class="brands__name">Татнефть</span>
             </button>
-            <button type="button" class="brands__button" title="Лукойл">
-                <!-- [svg] -->
+            <button class="brands__button">
+                <span class="brands__icon">
+                    <img src="assets/images/svg/lukoil-logo.svg" alt="Лукойл" />
+                </span>
                 <span class="brands__name">Лукойл</span>
             </button>
-            <button type="button" class="brands__button" title="Башнефть">
-                <!-- [svg] -->
+            <button class="brands__button">
+                <span class="brands__icon">
+                    <img src="assets/images/svg/bashneft-logo.svg" alt="Башнефть" />
+                </span>
                 <span class="brands__name">Башнефть</span>
             </button>
         </div>

@@ -10,6 +10,7 @@
 
 .calculator {
     flex: 1;
+    padding-right: rem-calc(50);
 
     &__title {
         font-size: rem-calc(50);
@@ -47,6 +48,10 @@
 
     &__fuel-type {
         margin-bottom: rem-calc(80);
+    }
+
+    &__brands {
+        margin-bottom: rem-calc(50);
     }
 }
 
@@ -86,9 +91,11 @@
         max-height: rem-calc(200);
         overflow-y: auto;
     }
+
     &.open &__dropdown {
         display: block;
     }
+
     &__option {
         padding: rem-calc(12) rem-calc(25);
         cursor: pointer;
@@ -123,21 +130,29 @@
         height: rem-calc(24);
         background: transparent;
         appearance: none;
-        background: linear-gradient(
-            to right,
-            $color-accent 0%,
-            $color-accent var(--progress, 0%),
-            #E0E7E9 var(--progress, 0%),
-            #E0E7E9 100%
-        );
+        -webkit-appearance: none;
 
         &::-webkit-slider-runnable-track {
             height: rem-calc(4);
             background: transparent;
+            background: linear-gradient(
+                to right,
+                $color-accent 0%,
+                $color-accent var(--progress, 0%),
+                #E0E7E9 var(--progress, 0%),
+                #E0E7E9 100%
+            );
         }
         &::-moz-range-track {
             height: rem-calc(4);
             background: transparent;
+            background: linear-gradient(
+                to right,
+                $color-accent 0%,
+                $color-accent var(--progress, 0%),
+                #E0E7E9 var(--progress, 0%),
+                #E0E7E9 100%
+            );
         }
 
         &::-webkit-slider-thumb {
@@ -210,5 +225,58 @@
 
     &__input:checked + &__label {
         color: $color-text;
+    }
+}
+
+.brands {
+    &__title {
+        font-size: rem-calc(25);
+        margin-bottom: rem-calc(23);
+        color: $color-grey-dark;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem-calc(16);
+        justify-content: space-between;
+    }
+
+    &__button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        &--active {
+            .brands__icon {
+                background: $color-accent;
+                img, svg {
+                    fill: $color-bg;
+                    opacity: 1;
+                }
+            }
+            .brands__name {
+                color: $color-text;
+            }
+        }
+    }
+
+    &__icon {
+        width: $brand-circle-size;
+        height: $brand-circle-size;
+        border-radius: 50%;
+        background: $color-bg-tertiary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: rem-calc(8);
+        img, svg {
+            width: $brand-icon-size;
+            height: $brand-icon-size;
+        }
+    }
+
+    &__name {
+        color: rgba($color-text, 0.3);
     }
 }
