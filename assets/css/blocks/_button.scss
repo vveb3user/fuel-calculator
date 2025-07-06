@@ -12,6 +12,7 @@
   transition: box-shadow 0.2s;
   display: inline-block;
   text-align: center;
+  cursor: pointer;
   &:hover {
     box-shadow: 0 rem-calc(8) rem-calc(32) 0 rgba($color-accent, 0.35);
   }

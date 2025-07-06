@@ -4,13 +4,12 @@
 .calculator-summary-container {
     padding: rem-calc(128) $dynamic-padding-x;
     display: flex;
-    gap: rem-calc(40);
-    align-items: flex-start;
+    gap: rem-calc(100);   
 }
 
 .calculator {
-    flex: 1;
-    padding-right: rem-calc(50);
+    flex: 1 1 0%;
+    box-sizing: border-box;
 
     &__title {
         font-size: rem-calc(50);
@@ -330,7 +329,7 @@
             }
         }
 
-        &[title="Страхование"] {
+        &[title="Страховка"] {
             &.services__button--active .services__icon {
                 background: #4CAF50;
             }

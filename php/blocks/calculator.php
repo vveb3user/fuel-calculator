@@ -54,7 +54,7 @@
     <div class="calculator__brands brands">
         <div class="brands__title">Укажите любимый бренд</div>
         <div class="circle-list brands__list">
-            <button class="circle-list__item brands__button brands__button--active" data-brand="shell">
+            <button class="circle-list__item brands__button" data-brand="shell">
                 <span class="circle-list__icon brands__icon">
                     <img src="assets/images/svg/shell-logo.svg" alt="Shell" />
                 </span>
@@ -148,7 +148,7 @@
                 <span class="circle-list__icon services__icon">
                     <img src="assets/images/svg/insuarence.svg" alt="Страхование" />
                 </span>
-                <span class="circle-list__name services__name">Страхование</span>
+                <span class="circle-list__name services__name">Страховка</span>
             </button>
         </div>
     </div>

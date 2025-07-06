@@ -1,4 +1,3 @@
-<!-- Модальное окно заказа тарифа -->
 <div class="modal" id="order-modal" style="display:none;">
     <div class="modal__content">
         <button type="button" class="modal__close" aria-label="Закрыть">&times;</button>

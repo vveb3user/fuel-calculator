@@ -1,3 +1,5 @@
+import { updateSummary } from './summary.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     const regionLimits = window.regionLimits || {};
 
@@ -157,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Расчет стоимости и обновление интерфейса
     async function calculateCost() {
         if (!selectedRegion || !selectedBrand) return;
-
         const data = {
             region: selectedRegion,
             volume: parseInt(slider.value),
@@ -166,7 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
             services: selectedServices,
             promoPercent: selectedPromo
         };
-
         try {
             const response = await fetch('php/calculate.php', {
                 method: 'POST',
@@ -175,9 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify(data)
             });
-
             const result = await response.json();
-            
             if (result.success) {
                 updateSummary(result.data);
             } else {
@@ -187,66 +185,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Ошибка запроса:', error);
         }
     }
-
-    // Обновление summary блока с результатами расчета
-    function updateSummary(data) {
-        const tariffNames = {
-            'economy': 'Эконом',
-            'selected': 'Избранный',
-            'premium': 'Премиум'
-        };
-        
-        if (tariffText) {
-            tariffText.textContent = tariffNames[data.tariff] || 'Избранный';
-        }
-
-        if (orderButton) {
-            orderButton.textContent = `Заказать тариф «${tariffNames[data.tariff] || 'Избранный'}»`;
-        }
-
-        updatePromoButtons(data.availablePromos);
-
-        if (yearlySavings) {
-            yearlySavings.textContent = `от ${formatNumber(data.yearlySavings)} ₽`;
-        }
-        if (monthlySavings) {
-            monthlySavings.textContent = `от ${formatNumber(data.monthlySavings)} ₽`;
-        }
-    }
-
-    // Обновление доступных промо-акций
-    function updatePromoButtons(availablePromos) {
-        promoButtons.forEach((btn, index) => {
-            const percent = parseInt(btn.querySelector('.summary__promo-percent').textContent);
-            if (availablePromos.includes(percent)) {
-                btn.style.display = 'block';
-                if (percent === Math.max(...availablePromos)) {
-                    btn.classList.add('summary__promo-btn--active');
-                    selectedPromo = percent;
-                } else {
-                    btn.classList.remove('summary__promo-btn--active');
-                }
-            } else {
-                btn.style.display = 'none';
-                btn.classList.remove('summary__promo-btn--active');
-            }
-        });
-    }
-
-    // Форматирование чисел в российском формате
-    function formatNumber(num) {
-        return new Intl.NumberFormat('ru-RU').format(num);
-    }
-
-    // Обработчики выбора промо-акций
-    promoButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            promoButtons.forEach(b => b.classList.remove('summary__promo-btn--active'));
-            btn.classList.add('summary__promo-btn--active');
-            selectedPromo = parseInt(btn.querySelector('.summary__promo-percent').textContent);
-            calculateCost();
-        });
-    });
 
     updateSliderLimits(null);
 });
