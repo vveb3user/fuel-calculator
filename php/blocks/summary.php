@@ -54,7 +54,7 @@
     <!-- Кнопка заказа -->
     <div class="summary__order-block">
         <button type="button" class="button summary__order-button">
-            Заказать тариф «Избранный»
+            <span class="summary__order-text">Заказать тариф «Избранный»</span>
             <span class="summary__order-arrow"><img src="assets/images/svg/arrow-right.svg" alt=""></span>
         </button>
     </div>

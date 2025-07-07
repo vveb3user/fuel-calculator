@@ -96,6 +96,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Обработчик выбора промо-акции
+    promoButtons.forEach(btn => {
+        btn.addEventListener('promoSelected', (e) => {
+            selectedPromo = e.detail.promo;
+            calculateCost();
+        });
+    });
+
     updateBrands();
 
     // Обновление позиции слайдера типа топлива
@@ -177,7 +185,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             const result = await response.json();
             if (result.success) {
-                updateSummary(result.data);
+                // Если выбранная промо-акция недоступна, сбрасываем на максимальную
+                if (!result.data.availablePromos.includes(selectedPromo)) {
+                    selectedPromo = Math.max(...result.data.availablePromos);
+                }
+                updateSummary(result.data, selectedPromo);
             } else {
                 console.error('Ошибка расчета:', result.error);
             }
