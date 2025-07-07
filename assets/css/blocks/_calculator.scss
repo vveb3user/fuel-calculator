@@ -236,7 +236,7 @@
 
     &__button {
         &.is-disabled {
-            .circle-list__icon {
+            .brands__icon {
                 border: none;
                 box-shadow: 0 0 rem-calc(8) rem-calc(2) rgba($color-error, 0.5);
             }

@@ -22,7 +22,6 @@
             <button type="button" class="circle-list__item summary__promo-btn">
                 <span class="circle-list__icon summary__promo-percent">50%</span>
                 <span class="circle-list__name summary__promo-desc">Экономии на штрафах</span>
-
             </button>
             <button type="button" class="circle-list__item summary__promo-btn">
                 <span class="circle-list__icon summary__promo-percent">20%</span>

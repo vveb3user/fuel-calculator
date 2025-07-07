@@ -39,7 +39,7 @@ function updatePromoButtons(availablePromos) {
     promoButtons.forEach(btn => {
         const percent = parseInt(btn.querySelector('.summary__promo-percent').textContent);
         if (availablePromos.includes(percent)) {
-            btn.style.display = 'block';
+            btn.classList.remove('summary__promo-btn--disabled');
             if (percent === maxPromo) {
                 btn.classList.add('summary__promo-btn--active');
                 selectedPromo = percent;
@@ -47,7 +47,7 @@ function updatePromoButtons(availablePromos) {
                 btn.classList.remove('summary__promo-btn--active');
             }
         } else {
-            btn.style.display = 'none';
+            btn.classList.add('summary__promo-btn--disabled');
             btn.classList.remove('summary__promo-btn--active');
         }
     });
@@ -61,6 +61,7 @@ function formatNumber(num) {
 // Обработчики кликов по промо-кнопкам
 promoButtons.forEach(btn => {
     btn.addEventListener('click', () => {
+        if (btn.classList.contains('summary__promo-btn--disabled')) return;
         promoButtons.forEach(b => b.classList.remove('summary__promo-btn--active'));
         btn.classList.add('summary__promo-btn--active');
         selectedPromo = parseInt(btn.querySelector('.summary__promo-percent').textContent);
