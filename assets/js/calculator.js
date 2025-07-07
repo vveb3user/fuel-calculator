@@ -56,14 +56,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Обновление доступных брендов в зависимости от типа топлива
     function updateBrands() {
+        if (!selectedRegion) {
+            brandButtons.forEach(btn => {
+                btn.classList.remove('brands__button--disabled');
+                btn.disabled = false;
+            });
+            return;
+        }
+        
         const allowed = fuelBrands[selectedFuel];
         brandButtons.forEach(btn => {
             const brandKey = btn.dataset.brand;
             if (allowed.includes(brandKey)) {
-                btn.classList.remove('is-disabled');
+                btn.classList.remove('brands__button--disabled');
                 btn.disabled = false;
             } else {
-                btn.classList.add('is-disabled');
+                btn.classList.add('brands__button--disabled');
                 btn.disabled = true;
                 if (btn.classList.contains('brands__button--active')) {
                     btn.classList.remove('brands__button--active');
@@ -88,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработчики выбора бренда
     brandButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            if (btn.classList.contains('is-disabled')) return;
+            if (btn.classList.contains('brands__button--disabled')) return;
             brandButtons.forEach(b => b.classList.remove('brands__button--active'));
             btn.classList.add('brands__button--active');
             selectedBrand = btn.querySelector('.brands__name').textContent.trim();
@@ -178,6 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
         region.addEventListener('regionSelected', e => {
             selectedRegion = e.detail.id;
             updateSliderLimits(e.detail.id);
+            updateBrands();
             calculateCost();
         });
     });

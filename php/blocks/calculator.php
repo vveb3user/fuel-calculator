@@ -145,9 +145,9 @@
                 </span>
                 <span class="circle-list__name services__name">СМС</span>
             </button>
-            <button type="button" class="circle-list__item services__button" title="Страхование">
+            <button type="button" class="circle-list__item services__button" title="Страховка">
                 <span class="circle-list__icon services__icon">
-                    <img src="assets/images/svg/insuarence.svg" alt="Страхование" />
+                    <img src="assets/images/svg/insuarence.svg" alt="Страховка" />
                 </span>
                 <span class="circle-list__name services__name">Страховка</span>
             </button>

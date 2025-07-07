@@ -235,29 +235,35 @@
     }
 
     &__button {
-        &.is-disabled {
-            .brands__icon {
-                border: none;
-                box-shadow: 0 0 rem-calc(8) rem-calc(2) rgba($color-error, 0.5);
-            }
-        }
         &--active {
             .brands__icon {
                 background: $color-accent;
                 img, svg {
                     opacity: 1;
+                    filter: none;
                 }
             }
             .brands__name {
                 color: $color-text;
             }
         }
+
+        &:not(.brands__button--active):not(.brands__button--disabled):hover {
+            .brands__icon {
+                background: $color-accent;
+                img, svg {
+                    opacity: 0.7;
+                }
+            }
+        }
     }
 
     &__icon {
+        transition: background 0.3s, opacity 0.3s;
         img, svg {
-            opacity: 0.5;
-            transition: fill 0.2s, opacity 0.2s;
+            opacity: 0.3;
+            filter: grayscale(100%) brightness(1.3);
+            transition: filter 0.3s ease;
         }
     }
 }
@@ -281,66 +287,41 @@
             }
         }
 
-        &[title="Штрафы"] {
-            &.services__button--active .services__icon {
-                background: #FF6B6B;
+        @mixin service-color($title, $color) {
+            &[title="#{$title}"] {
+                &.services__button--active .services__icon {
+                    background: $color;
+                }
+
+                &:not(.services__button--active):hover {
+                    .services__icon {
+                        background: $color;
+                        opacity: 0.3;
+                        img, svg {
+                            opacity: 1;
+                        }
+                    }
+                }
             }
         }
 
-        &[title="Парковки"] {
-            &.services__button--active .services__icon {
-                background: #0079C2;
-            }
-        }
-
-        &[title="ЭДО"] {
-            &.services__button--active .services__icon {
-                background: #4ECDC4;
-            }
-        }
-
-        &[title="Мойки"] {
-            &.services__button--active .services__icon {
-                background: #5FADE0;
-            }
-        }
-
-        &[title="Отчёты"] {
-            &.services__button--active .services__icon {
-                background: #FFA726;
-            }
-        }
-
-        &[title="Телематика"] {
-            &.services__button--active .services__icon {
-                background: #9C27B0;
-            }
-        }
-
-        &[title="PPRPAY"] {
-            &.services__button--active .services__icon {
-                background: #FF5722;
-            }
-        }
-
-        &[title="СМС"] {
-            &.services__button--active .services__icon {
-                background: #07DE44;
-            }
-        }
-
-        &[title="Страховка"] {
-            &.services__button--active .services__icon {
-                background: #4CAF50;
-            }
-        }
+        @include service-color("Штрафы", #FF6B6B);
+        @include service-color("Парковки", #0079C2);
+        @include service-color("ЭДО", #4ECDC4);
+        @include service-color("Мойки", #5FADE0);
+        @include service-color("Отчёты", #FFA726);
+        @include service-color("Телематика", #9C27B0);
+        @include service-color("PPRPAY", #FF5722);
+        @include service-color("СМС", #07DE44);
+        @include service-color("Страховка", #4CAF50);
     }
 
     &__icon {
+        transition: background 0.3s, opacity 0.3s;
         img, svg {
             filter: brightness(0) invert(1);
             opacity: 0.7;
-            transition: filter 0.2s, opacity 0.2s;
+            transition: filter 0.3s, opacity 0.3s;
         }
     }
 }

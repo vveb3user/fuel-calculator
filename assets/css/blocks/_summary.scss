@@ -106,9 +106,11 @@
       background-position: center;
       background-size: 70% 70%;
     }
-    &--disabled {
+    &:not(.summary__promo-btn--active):not(.summary__promo-btn--disabled):hover {
       .summary__promo-percent {
-        box-shadow: 0 0 rem-calc(8) rem-calc(2) rgba($color-error, 0.5);
+        opacity: 0.3;
+        background: $color-accent;
+        color: $color-text;
       }
     }
   }
@@ -124,7 +126,8 @@
     border-radius: 50%;
     font-size: rem-calc(25);
     font-weight: 500;
-    color: $color-grey-light;
+    color: $color-grey-light;  
+    transition: background 0.3s, opacity 0.3s, color 0.3s;
   }
 
   &__promo-desc {
