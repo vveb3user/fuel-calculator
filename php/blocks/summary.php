@@ -57,5 +57,6 @@
             <span class="summary__order-text">Заказать тариф «Избранный»</span>
             <span class="summary__order-arrow"><img src="assets/images/svg/arrow-right.svg" alt=""></span>
         </button>
+        <div class="summary__order-error"></div>
     </div>
 </div> 

@@ -77,7 +77,7 @@ promoButtons.forEach(btn => {
         promoButtons.forEach(b => b.classList.remove('summary__promo-btn--active'));
         btn.classList.add('summary__promo-btn--active');
         selectedPromo = parseInt(btn.querySelector('.summary__promo-percent').textContent);
-        // Можно вызвать кастомное событие, если нужно оповестить calculator.js
+
         const event = new CustomEvent('promoSelected', { detail: { promo: selectedPromo } });
         btn.dispatchEvent(event);
     });
