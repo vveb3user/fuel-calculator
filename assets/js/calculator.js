@@ -36,6 +36,24 @@ document.addEventListener('DOMContentLoaded', function() {
     let selectedRegion = null;
     let selectedPromo = 50;
 
+    // Словари для перевода
+    const fuelTypeNames = {
+        petrol: 'Бензин',
+        gas: 'Газ',
+        dt: 'ДТ'
+    };
+    const tariffNames = {
+        economy: 'Эконом',
+        selected: 'Избранный',
+        premium: 'Премиум'
+    };
+    const promoDescs = {
+        50: 'Экономия на штрафах',
+        20: 'Возврат НДС',
+        5: 'Скидка на мойку',
+        2: 'Скидка на топливо'
+    };
+
     // Обновление доступных брендов в зависимости от типа топлива
     function updateBrands() {
         const allowed = fuelBrands[selectedFuel];
@@ -185,10 +203,23 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             const result = await response.json();
             if (result.success) {
-                // Если выбранная промо-акция недоступна, сбрасываем на максимальную
                 if (!result.data.availablePromos.includes(selectedPromo)) {
                     selectedPromo = Math.max(...result.data.availablePromos);
                 }
+                result.data.promo = selectedPromo;
+                result.data.promoDesc = promoDescs[selectedPromo] || (selectedPromo + '%');
+                if (!Array.isArray(data.services) || data.services.length === 0) {
+                    result.data.services = 'Не выбрано';
+                } else {
+                    result.data.services = data.services;
+                }
+                result.data.region = selectedRegion;
+                result.data.volume = parseInt(slider.value);
+                result.data.fuelType = selectedFuel;
+                result.data.fuelTypeName = fuelTypeNames[selectedFuel] || selectedFuel;
+                result.data.brand = selectedBrand;
+                result.data.tariffName = tariffNames[result.data.tariff] || result.data.tariff;
+                window.lastCalculatorResults = result.data;
                 updateSummary(result.data, selectedPromo);
             } else {
                 console.error('Ошибка расчета:', result.error);

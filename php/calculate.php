@@ -30,7 +30,7 @@ if (!$regionId || $volume <= 0 || !in_array($fuelType, ['petrol', 'gas', 'dt']))
 }
 
 // Получаем лимиты региона
-$regions = require __DIR__ . '/regions.php';
+$regions = $config['regions'];
 $regionLimit = 500;
 foreach ($regions as $region) {
     if ($region['id'] === $regionId) {

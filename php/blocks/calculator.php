@@ -10,7 +10,8 @@
             </div>
             <div class="select-region__dropdown">
                 <?php
-                $regions = require __DIR__ . '/../regions.php';
+                $config = require __DIR__ . '/../config.php';
+                $regions = $config['regions'];
                 $regionLimits = [];
                 foreach ($regions as $region) {
                     $regionLimits[$region['id']] = $region['limit'];

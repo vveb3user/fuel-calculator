@@ -25,7 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function openModal() {
-        if (modal) modal.classList.add('modal--open');
+        if (modal) {
+            const title = modal.querySelector('.modal__title');
+            let tariff = 'Избранный';
+            if (window.lastCalculatorResults && window.lastCalculatorResults.tariffName) {
+                tariff = window.lastCalculatorResults.tariffName;
+            }
+            if (title) {
+                title.innerHTML = `Заказать тариф<br>«${tariff}»`;
+            }
+            modal.classList.add('modal--open');
+        }
         document.body.style.overflow = 'hidden';
     }
     function closeModal() {
@@ -88,7 +98,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 inn: form.elements['inn'].value.trim(),
                 phone: form.elements['phone'].value.trim(),
                 email: form.elements['email'].value.trim(),
-                agree: form.elements['agree'].checked
+                agree: form.elements['agree'].checked,
+                results: window.lastCalculatorResults || {}
             };
             try {
                 const response = await fetch('php/order.php', {
