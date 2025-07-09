@@ -1,3 +1,5 @@
+@use './functions' as *;
+
 $color-primary: #31CECB;
 $color-accent: #FFDD21;
 $color-bg: #FFFFFF;
@@ -13,8 +15,13 @@ $color-primary-bright: #00CFCC;
 $color-error: #FF3B30;
 
 $font-family-primary: 'Inter', Arial, sans-serif;
+$font-size-title: clamp(rem-calc(24), 3vw, rem-calc(50));
+$font-size-subtitle: clamp(rem-calc(18), 1.5vw, rem-calc(24));
+$font-size-label: clamp(rem-calc(16), 1.5vw, rem-calc(20));
+$font-size-label-small: clamp(rem-calc(14), 1vw, rem-calc(16));
+$font-size-small: clamp(rem-calc(12), 1vw, rem-calc(14));
+$font-size-extra-small: clamp(rem-calc(10), 1vw, rem-calc(12));  
 
-$dynamic-padding-x: clamp(16px, 12vw, 240px);
-
-$brand-circle-size: clamp(56px, 7vw, 86px);
-$brand-icon-size: clamp(24px, 3.5vw, 42px);
+$breakpoint-mobile: 767px;
+$breakpoint-tablet: 1023px;
+$breakpoint-desktop: 1280px;

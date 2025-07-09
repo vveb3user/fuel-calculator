@@ -1,24 +1,27 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../functions' as *;
 
 .summary {
     flex: 1 1 0%;
     box-sizing: border-box;
+    padding-top: clamp(rem-calc(32), 3vw, rem-calc(40));
     border-radius: rem-calc(24);
     box-shadow: 0 4px 60px rgba($color-grey, 0.1);
+    min-width: 0;
+    max-width: rem-calc(700);
 
   &__tariff-block {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: rem-calc(12);
-    margin-top: rem-calc(44);
-    margin-bottom: rem-calc(32);
+    margin-bottom:clamp(rem-calc(24), 3vw, rem-calc(32));
   }
 
   &__tariff-label {
     color: $color-grey-dark;
-    font-size: rem-calc(20);
+    font-size: $font-size-label;
   }
 
   &__tariff-badge {
@@ -27,13 +30,13 @@
     background: $color-primary;
     color: $color-bg;
     border-radius: rem-calc(60);
-    padding: rem-calc(14) rem-calc(24);
+    padding: clamp(rem-calc(10), 1.5vw, rem-calc(14)) clamp(rem-calc(16), 1.5vw, rem-calc(24));
     gap: rem-calc(8);
   }
 
   &__tariff-text {
     color: $color-bg;
-    font-size: rem-calc(20);
+    font-size: $font-size-label;
     font-weight: 700;
   }
 
@@ -41,15 +44,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: rem-calc(48);
+    padding-bottom: clamp(rem-calc(32), 3vw, rem-calc(48));
     border-bottom: 1px solid $color-border;
   }
 
   &__card-image {
     width: 100%;
-    max-width: rem-calc(520);
+    max-width: rem-calc(560);
     height: auto;
-    padding: 0 rem-calc(24);
+    padding: 0 rem-calc(48);
     border-radius: rem-calc(20);
     margin-bottom: rem-calc(24);
   }
@@ -62,14 +65,14 @@
 
   &__card-caption-text {
     color: $color-grey-dark;
-    font-size: rem-calc(20);
+    font-size: $font-size-label;
     text-decoration: underline;
     text-underline-offset: 6px;
   }
 
   &__promo-block {
-    margin-top: rem-calc(43);
-    padding-bottom: rem-calc(48);
+    margin-top: clamp(rem-calc(32), 3vw, rem-calc(43));
+    padding-bottom: clamp(rem-calc(32), 3vw, rem-calc(48));
     text-align: center;
     border-bottom: 1px solid $color-border;
   }
@@ -116,30 +119,31 @@
   }
 
   &__promo-title {
-    font-size: rem-calc(24);
-    margin-bottom: rem-calc(24);
+    font-size: $font-size-subtitle;
+    margin-bottom: clamp(rem-calc(16), 3vw, rem-calc(24));
   }
 
   &__promo-percent {
-    width: clamp(86px, 7vw, 110px);
-    height: clamp(86px, 7vw, 110px);
-    border-radius: 50%;
-    font-size: rem-calc(25);
+    width: rem-calc(110);
+    height: rem-calc(110);
+    font-size: $font-size-subtitle;
     font-weight: 500;
     color: $color-grey-light;  
     transition: background 0.3s, opacity 0.3s, color 0.3s;
   }
 
   &__promo-desc {
+      width: rem-calc(100);
       color: rgba($color-text, 0.5);
   }
 
   &__savings-block {
-    margin-top: rem-calc(50);
+    margin-top: clamp(rem-calc(32), 3vw, rem-calc(48));
+    padding: 0 clamp(rem-calc(16), 3vw, rem-calc(48));
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: rem-calc(32);
+    gap: clamp(rem-calc(16), 3vw, rem-calc(24));
   }
 
   &__savings-col {
@@ -148,29 +152,30 @@
     align-items: flex-start;
     &--label {
       .summary__savings-title {
+        width: 100%;
         max-width: rem-calc(120);
-        font-size: rem-calc(24);
+        font-size: $font-size-subtitle;
         line-height: rem-calc(29);
       }
     }
     &--year, &--month {
       .summary__savings-label {
         padding-bottom: rem-calc(5);
-        font-size: rem-calc(12);
+        font-size: $font-size-extra-small;
         text-transform: uppercase;
         color: $color-grey-dark;
         font-weight: 500;
       }
       .summary__savings-value {
-        font-size: rem-calc(24);
+        font-size: $font-size-subtitle;
         font-weight: 700;
       }
     }
   }
 
   &__order-block {
-    margin-top: rem-calc(50);
-    padding: 0 rem-calc(24);
+    margin-top: clamp(rem-calc(32), 3vw, rem-calc(48));
+    padding: 0 clamp(rem-calc(16), 3vw, rem-calc(48));
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -178,10 +183,15 @@
   
   &__order-button {
     display: block;
-    width: rem-calc(530);
-    padding: rem-calc(24);
-    font-size: rem-calc(16);
+    width: 100%;
+    max-width: rem-calc(480);
+    padding: clamp(rem-calc(16), 3vw, rem-calc(24));
+    font-size: $font-size-label-small;
     font-weight: 500;
+  }
+
+  &__order-text {
+    font-size: $font-size-label;
   }
 
   &__order-arrow {
@@ -191,7 +201,33 @@
 
   &__order-error {
     margin-top: rem-calc(12);
+    min-height: rem-calc(48);
     text-align: center;
     color: $color-error;
+    transition: min-height 0.2s;
+  }
+}
+
+@include desktop {
+  .summary {
+    max-width: rem-calc(800);
+    width: 100%;
+
+    &__tariff-block {
+      flex-direction: column;
+    }
+
+    &__promo-percent {
+      width: rem-calc(86);
+      height: rem-calc(86);
+    }
+  }
+}
+
+@include mobile {
+  .summary {
+    &__promo-list {
+      grid-template-columns: repeat(2, max-content);
+    }
   }
 }

@@ -81,4 +81,16 @@ promoButtons.forEach(btn => {
         const event = new CustomEvent('promoSelected', { detail: { promo: selectedPromo } });
         btn.dispatchEvent(event);
     });
+});
+
+// Плавный скролл к кнопке заказа тарифа
+document.addEventListener('DOMContentLoaded', () => {
+  const headerOrderBtn = document.querySelector('.header .button');
+  const targetOrderBtn = document.querySelector('.summary__order-button');
+  if (headerOrderBtn && targetOrderBtn) {
+    headerOrderBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      targetOrderBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
 }); 

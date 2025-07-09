@@ -1,5 +1,6 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../functions' as *;
 
 .circle-list {
     display: grid;
@@ -18,8 +19,8 @@
   }
 
   &__icon {
-    width: $brand-circle-size;
-    height: $brand-circle-size;
+    width: rem-calc(78);
+    height: rem-calc(78);
     border-radius: 50%;
     background: $color-bg-tertiary;
     display: flex;
@@ -27,13 +28,13 @@
     justify-content: center;
     margin-bottom: rem-calc(8);
     img, svg {
-      width: $brand-icon-size;
-      height: $brand-icon-size;
+      width: rem-calc(42);
+      height: rem-calc(42);
     }
   }
 
   &__name {
-    width: $brand-circle-size;
+    width: 95%;
     color: rgba($color-text, 0.3);
   }
 }

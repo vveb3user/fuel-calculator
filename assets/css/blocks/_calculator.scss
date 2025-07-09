@@ -1,21 +1,27 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../functions' as *;
 
 .calculator-summary-container {
-    padding: rem-calc(128) $dynamic-padding-x;
     display: flex;
-    gap: rem-calc(100);   
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: clamp(rem-calc(48), 2.5vw, rem-calc(96));
+    gap: rem-calc(100)
 }
 
 .calculator {
     flex: 1 1 0%;
     box-sizing: border-box;
+    min-width: 0;
+    max-width: rem-calc(600);
 
     &__title {
-        font-size: rem-calc(50);
+        font-size: $font-size-title;
         font-weight: 500;
         line-height: 1.1;
-        margin-bottom: rem-calc(70);
+        margin-bottom: clamp(rem-calc(16), 2.5vw, rem-calc(64));
     }
 
     &__region-select {
@@ -23,9 +29,9 @@
         background: $color-bg-secondary;
         border: 1px solid $color-border-secondary;
         border-radius: rem-calc(4);
-        padding: rem-calc(21) rem-calc(40) rem-calc(21) rem-calc(25);
-        margin-bottom: rem-calc(60);
-        height: rem-calc(100);
+        padding: clamp(rem-calc(8), 1.5vw, rem-calc(20)) clamp(rem-calc(16), 1.5vw, rem-calc(40));
+        margin-bottom: clamp(rem-calc(16), 2.5vw, rem-calc(60));
+        max-height: rem-calc(100);
 
         display: flex;
         justify-content: space-between; 
@@ -38,36 +44,36 @@
         background: $color-bg-secondary;
         border: 1px solid $color-border-secondary;
         border-radius: rem-calc(4);
-        padding: rem-calc(21) rem-calc(40) rem-calc(21) rem-calc(25);
+        padding: clamp(rem-calc(8), 1.5vw, rem-calc(20)) clamp(rem-calc(16), 1.5vw, rem-calc(40));
         max-height: rem-calc(100);
 
         display: flex;       
-        flex-direction: column
+        flex-direction: column;
     }
 
     &__fuel-type {
-        margin-bottom: rem-calc(80);
+        margin-bottom: clamp(rem-calc(48), 2.5vw, rem-calc(80));
     }
 
     &__brands {
-        margin-bottom: rem-calc(50);
+        margin-bottom: clamp(rem-calc(24), 2.5vw, rem-calc(50));
     }
 }
 
 .select-region {
-    &__label {
-        color: rgba($color-text, 0.3);
-        margin-bottom: rem-calc(8);
-    }   
-
     &__wrapper {
         display: flex;
         flex-direction: column;
     }
 
+    &__label {
+        color: rgba($color-text, 0.3);
+        margin-bottom: clamp(rem-calc(4), 2.5vw, rem-calc(8));
+    }   
+
     &__select {
         color: $color-grey-dark;
-        font-size: rem-calc(20);
+        font-size: $font-size-label;
         border: none;
         width: 100%;
     }
@@ -85,7 +91,7 @@
         background: $color-bg-secondary;
         border: 1px solid $color-border-secondary;
         border-radius: rem-calc(4);
-        z-index: 10;
+        z-index: 9;
         margin-top: rem-calc(4);
         max-height: rem-calc(200);
         overflow-y: auto;
@@ -96,9 +102,9 @@
     }
 
     &__option {
-        padding: rem-calc(12) rem-calc(25);
+        padding: clamp(rem-calc(8), 1vw, rem-calc(12)) clamp(rem-calc(16), 2vw, rem-calc(24));
         cursor: pointer;
-        font-size: rem-calc(20);
+        font-size: $font-size-label;
         color: $color-grey-dark;
         transition: background 0.15s;
         &:hover {
@@ -110,18 +116,18 @@
 .volume-slider {  
     &__label {
         color: rgba($color-text, 0.3);
-        margin-bottom: rem-calc(8);
+        margin-bottom: clamp(rem-calc(4), 2.5vw, rem-calc(8));
         }
+
+    &__value {
+        font-size: $font-size-label;
+        color: $color-grey-dark;
+    }
 
     &__input-wrapper {
         margin-top: -#{rem-calc(12)};
-        margin-bottom: rem-calc(70);
+        margin-bottom: clamp(rem-calc(32), 2.5vw, rem-calc(70));
         position: relative;
-    }
-
-    &__value {
-        font-size: rem-calc(20);
-        color: $color-grey-dark;
     }
 
     &__input {
@@ -193,7 +199,7 @@
         grid-template-columns: 1fr 1fr 1fr;
         border-bottom: rem-calc(4) solid $color-border-secondary;
         position: relative;
-        padding-bottom: rem-calc(24);        
+        padding-bottom: clamp(rem-calc(16), 2.5vw, rem-calc(48));        
     }
 
     &__slider {
@@ -212,9 +218,8 @@
     }
 
     &__label {
-        font-size: rem-calc(25);
+        font-size: $font-size-subtitle;
         color: $color-grey-dark;
-        padding-bottom: rem-calc(24);
         cursor: pointer;
         position: relative;
         transition: color 0.2s;
@@ -229,8 +234,8 @@
 
 .brands {
     &__title {
-        font-size: rem-calc(25);
-        margin-bottom: rem-calc(23);
+        font-size: $font-size-subtitle;
+        margin-bottom: clamp(rem-calc(24), 2.5vw, rem-calc(32));
         color: $color-grey-dark;
     }
 
@@ -270,8 +275,8 @@
 
 .services {
     &__title {
-        font-size: rem-calc(25);
-        margin-bottom: rem-calc(23);
+        font-size: $font-size-subtitle;
+        margin-bottom: clamp(rem-calc(24), 2.5vw, rem-calc(32));
         color: $color-grey-dark;
     }
 
@@ -284,24 +289,6 @@
             }
             .services__name {
                 color: $color-text;
-            }
-        }
-
-        @mixin service-color($title, $color) {
-            &[title="#{$title}"] {
-                &.services__button--active .services__icon {
-                    background: $color;
-                }
-
-                &:not(.services__button--active):hover {
-                    .services__icon {
-                        background: $color;
-                        opacity: 0.3;
-                        img, svg {
-                            opacity: 1;
-                        }
-                    }
-                }
             }
         }
 
@@ -322,6 +309,66 @@
             filter: brightness(0) invert(1);
             opacity: 0.7;
             transition: filter 0.3s, opacity 0.3s;
+        }
+    }
+}
+
+@include desktop {
+    .calculator-summary-container {
+        flex-direction: column;
+        align-items: center;
+        gap: rem-calc(48)
+    }
+
+    .calculator {
+        max-width: rem-calc(800);
+        width: 100%;
+        &__title {
+            text-align: center;
+        }
+    }
+
+    .brands {
+        &__title {
+            text-align: center;
+        }
+
+        &__list {
+            justify-content: center;
+            gap: rem-calc(40);
+        }
+    }
+
+    .services {
+        &__title {
+            text-align: center;
+        }
+
+        &__list {
+            justify-content: center;
+            gap: rem-calc(40);
+        }
+    }
+}
+
+@include tablet {
+    .calculator-summary-container {
+        margin-top: rem-calc(48);
+    }
+}
+
+@include mobile {   
+    .brands {
+        &__list {
+            grid-template-columns: repeat(3, max-content);
+            gap: clamp(rem-calc(16), 3vw, rem-calc(32));
+        }
+    }
+
+    .services {
+        &__list {
+            grid-template-columns: repeat(3, max-content);
+            gap: clamp(rem-calc(16), 3vw, rem-calc(32));
         }
     }
 }

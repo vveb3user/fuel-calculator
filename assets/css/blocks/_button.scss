@@ -1,10 +1,10 @@
 @use '../variables' as *;
-@use '../mixins' as *;
+@use '../functions' as *;
 
 .button {
   background: $color-accent;
   font-weight: 500;
-  font-size: rem-calc(14);
+  font-size: $font-size-small;
   border: none;
   border-radius: rem-calc(5);
   padding: rem-calc(12) rem-calc(32);
@@ -16,4 +16,4 @@
   &:hover {
     box-shadow: 0 rem-calc(8) rem-calc(32) 0 rgba($color-accent, 0.35);
   }
-} 
+}

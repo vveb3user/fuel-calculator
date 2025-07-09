@@ -1,10 +1,11 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../functions' as *;
 
 .header { 
     
   &__container {
-    padding: rem-calc(39) $dynamic-padding-x;
+    padding: clamp(rem-calc(24), 4vw, rem-calc(32)) clamp(rem-calc(48), 4vw, rem-calc(96));
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -13,36 +14,129 @@
   }
 
   &__logo img {
-    height: rem-calc(57);
+    max-width: clamp(rem-calc(130), 8vw, rem-calc(185));
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  &__mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: rem-calc(16);
+    width: rem-calc(24);
+    height: rem-calc(18);
+    cursor: pointer;
+
+    span {
+      width: 100%;
+      height: 2px;
+      background-color: $color-text;
+      transition: all 0.3s ease;
+    }
+
+    &.active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(rem-calc(5), rem-calc(5));
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(rem-calc(7), rem-calc(-6));
+      }
+    }
   }
 
   &__menu-wrapper {
-    padding: rem-calc(28) $dynamic-padding-x;
-    border-bottom: rem-calc(8) solid $color-primary;
+    padding: clamp(rem-calc(20), 4vw, rem-calc(28)) clamp(rem-calc(48), 4vw, rem-calc(96));
+    border-bottom: clamp(rem-calc(4), 0.5vw, rem-calc(8)) solid $color-primary;
   }
 
   &__menu {
     display: flex;
     justify-content: flex-start;
-    gap: rem-calc(30);
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    gap: clamp(rem-calc(16), 2vw, rem-calc(30));
   }
 
-  &__menu-item a {
-    color: $color-text;
-    text-decoration: none;
-    transition: color 0.2s;
-    
-    &:hover,
-    &:focus {
-      color: $color-primary;
+  &__menu-item {
+    a {
+      transition: color 0.2s;
+      &:hover,
+      &:focus {
+        color: $color-primary;
+      }
     }
-  }
-  
-  .button {
-    padding: rem-calc(9) rem-calc(24);
   }
 }
 
+@include tablet {
+
+  .header {
+
+    &__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 11;
+    background: $color-bg;
+    padding: rem-calc(16);
+  }
+
+  &__mobile-menu-toggle {
+    display: flex;
+  }
+
+  &__logo img {
+    height: rem-calc(32);
+  }
+  
+  &__actions {
+    flex-direction: row;
+    gap: rem-calc(32);
+  }
+
+  &__menu-wrapper {
+    padding: 0;
+    border-bottom: none;
+    position: fixed;
+    top: rem-calc(56);
+    left: 0;
+    right: 0;
+    background: $color-bg;
+    z-index: 10;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 rem-calc(4) rem-calc(12) rgba($color-text, 0.1);
+    &.active {
+      transform: translateY(0);
+    }
+  }
+
+  &__menu {
+    flex-direction: column;
+    gap: 0;
+    padding: rem-calc(16);
+    padding-bottom: 0;
+  }
+
+  &__menu-item {
+    border-bottom: 1px solid $color-border;
+    &:last-child {
+      border-bottom: none;
+    }
+    a {
+      display: block;
+      padding: rem-calc(16) 0;
+    }
+  }
+
+  & .button {
+    padding: rem-calc(5) rem-calc(20);
+  }
+}
+}

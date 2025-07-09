@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Калькулятор тарифов</title>
         <!-- favicon и meta -->
+        <link rel="icon" type="image/png" href="assets/images/favicon.png">
         <link href="https://fonts.googleapis.com/css?family=Inter:400,500,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/main.css">
     </head>

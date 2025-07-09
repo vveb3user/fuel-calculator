@@ -1,10 +1,11 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../functions' as *;
 
 .modal {
   display: none;
   position: fixed;
-  z-index: 10;
+  z-index: 100;
   top: 0;
   left: 0;
   width: 100vw;
@@ -22,7 +23,8 @@
     background: $color-bg;
     border-radius: rem-calc(10);
     box-shadow: 0 4px 40px rgba($color-grey-dark, 0.15);
-    padding: rem-calc(100) rem-calc(110);
+    padding: clamp(rem-calc(48), 3vw, rem-calc(100));
+    padding-bottom: 0;
     position: relative;
   }
 
@@ -44,26 +46,27 @@
   }
 
   &__title {
-    font-size: rem-calc(50);
+    font-size: $font-size-title;
     font-weight: 500;
     text-align: center;
     line-height: 1.2;
-    margin-bottom: rem-calc(78);
+    margin-bottom: clamp(rem-calc(32), 3vw, rem-calc(78));
   }
 
   &__form {
-    min-width: rem-calc(500);
+    max-width: rem-calc(500);
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: rem-calc(20);
+    gap: clamp(rem-calc(16), 3vw, rem-calc(20));
   }
 
   &__input {
     width: 100%;
-    padding: rem-calc(30) rem-calc(25);
+    padding: clamp(rem-calc(16), 3vw, rem-calc(32)) clamp(rem-calc(16), 3vw, rem-calc(24));
     border: 1px solid $color-border-secondary;
     border-radius: rem-calc(5);
-    font-size: rem-calc(20);
+    font-size: $font-size-label;
     color: $color-grey-dark;
     background: $color-bg-secondary;
     transition: border 0.2s;
@@ -75,13 +78,13 @@
   &__checkbox-block {
     display: flex;
     align-items: center;
-    margin-top: rem-calc(24);
+    margin-top: clamp(rem-calc(16), 3vw, rem-calc(24));
   }
 
   &__checkbox-label {
     display: flex;
     align-items: center;
-    font-size: rem-calc(20);
+    font-size: $font-size-label;
     cursor: pointer;
     user-select: none;
   }
@@ -101,6 +104,7 @@
   &__checkbox-custom {
     width: rem-calc(27);
     height: rem-calc(27);
+    display: inline-block; 
     border-radius: 50%;
     border: 2px solid $color-border-secondary;
     background: $color-bg-secondary;
@@ -110,15 +114,25 @@
   }
 
   &__submit {
-    margin-top: rem-calc(40);
-    padding: rem-calc(24) rem-calc(90);
-    font-size: rem-calc(20);
+    margin-top: clamp(rem-calc(16), 3vw, rem-calc(40));
+    padding: clamp(rem-calc(16), 3vw, rem-calc(24)) clamp(rem-calc(48), 3vw, rem-calc(90));
+    font-size: $font-size-label;
   }
 
   &__message {
-    margin-top: rem-calc(24);
+    margin: clamp(rem-calc(16), 3vw, rem-calc(24)) 0;
     max-width: rem-calc(500);
-    font-size: rem-calc(20);
+    min-height: rem-calc(24);
+    font-size: $font-size-label;
     text-align: center;
+    transition: height 0.2s;
+  }
+}
+
+@include mobile {
+  .modal {
+    &__content {
+      margin: rem-calc(16);
+    }
   }
 }

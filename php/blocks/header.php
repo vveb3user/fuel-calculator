@@ -5,6 +5,11 @@
         </div>
         <div class="header__actions">
             <button class="button">Заказать карты</button>
+            <button class="header__mobile-menu-toggle" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </div>
     <div class="header__menu-wrapper">
